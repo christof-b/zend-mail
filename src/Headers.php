@@ -82,7 +82,10 @@ class Headers implements Countable, Iterator
                     throw new Exception\RuntimeException('Malformed header detected');
                 }
                 continue;
-            }
+            } else {
+				//Allow single empty lines in headers
+				$emptyLine = 0;
+			}
 
             if ($emptyLine > 0) {
                 throw new Exception\RuntimeException('Malformed header detected');
